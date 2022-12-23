@@ -1,21 +1,19 @@
 package com.bridgelabz.exceptions.moodanalyzer;
 
-
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class MoodAnalyzerTest {
     @Test
-    public void testMoodAnalysis_whenMoodIsSad() throws MoodAnalysisException {
-        MoodAnalyzerMain moodAnalyzer = new MoodAnalyzerMain("This is a sad message");//Tc1.1 Refactor
-        String mood = moodAnalyzer.analyseMood();
-        Assert.assertEquals(mood,"SAD");
+    public void testMoodAnalysis_whenMoodIsSad() { //TC 1.1 "I am in sad mood"
+        MoodAnalyzerMain moodAnalyzer = new MoodAnalyzerMain();
+        String mood = moodAnalyzer.analyseMood( "I am in sad mood ");
+        Assert.assertEquals(mood, "SAD");
     }
-
     @Test
-    public void testMoodAnalysis_whenMoodIsHappy() throws MoodAnalysisException {//Tc1.2 Refactor
-        MoodAnalyzerMain moodAnalyzer = new MoodAnalyzerMain("This is a happy message");
-        String mood1 = moodAnalyzer.analyseMood();
-        Assert.assertEquals(mood1,"HAPPY");
+    public void testMoodAnalysis_whenMoodIsHappy() { //TC 1.2 I am in happy mood
+        MoodAnalyzerMain moodAnalyzer = new MoodAnalyzerMain();
+        String mood1 = moodAnalyzer.analyseMood("I am in happy mood");
+        Assert.assertEquals(mood1, "HAPPY");
     }
 }
